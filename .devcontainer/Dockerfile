@@ -8,12 +8,12 @@ RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt install python3.11 python3-pip
 # Install system dependencies
 RUN apt-get update && apt-get install -y libmagic1 && rm -rf /var/lib/apt/lists/*
 
-
-
 # Set the working directory
-WORKDIR /backend
+WORKDIR /workspace
 
 COPY . .
+
+WORKDIR /workspace/backend
 
 RUN rm poetry.lock
 

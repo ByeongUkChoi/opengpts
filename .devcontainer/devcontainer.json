@@ -4,17 +4,19 @@
 	"name": "Existing Dockerfile",
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "backend",
-	"workspaceFolder": "/backend"
-	// "features": {
-	// 	"ghcr.io/devcontainers/features/python:1": {}
-	// },
-	// "customizations": {
-	// 		"vscode.settings.terminal.integrated.shell.linux": "/bin/bash"
-	// }
-
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
-
+	"workspaceFolder": "/workspace",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python",
+				"ms-python.debugpy",
+				"ms-azuretools.vscode-docker"
+			]
+		}
+	},
+	"features": {
+    "git": "latest"
+  }
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 
