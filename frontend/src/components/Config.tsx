@@ -380,6 +380,14 @@ export function Config(props: {
             className="block w-full rounded-none rounded-l-md border-0 py-1.5 pl-4 text-gray-900 ring-1 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ring-inset ring-gray-300"
             placeholder="Name your bot"
           />
+          <input
+            type="text"
+            name="botId"
+            id="botId"
+            autoComplete="off"
+            className="block w-full rounded-none rounded-l-md border-0 py-1.5 pl-4 text-gray-900 ring-1 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ring-inset ring-gray-300"
+            placeholder="ID your bot"
+          />
         </div>
         <button
           type="submit"
@@ -406,9 +414,11 @@ export function Config(props: {
         e.stopPropagation();
         const form = e.target as HTMLFormElement;
         const key = form.key.value;
+        const botId = form.botId.value;
         if (!key) return;
+        if (!botId) return;
         setInflight(true);
-        await props.saveConfig(key, values!, files, isPublic);
+        await props.saveConfig(key, values!, files, isPublic, botId);
         setInflight(false);
       }}
     >
